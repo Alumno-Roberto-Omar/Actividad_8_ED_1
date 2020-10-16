@@ -2,6 +2,8 @@
 #define COMPUTADORA_H
 
 #include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
 
 class Computadora{
@@ -10,7 +12,7 @@ class Computadora{
     int disco;
     int ram;
 
-    public:
+public:
     Computadora();
     Computadora(const string &nombre, const string &sistema, int disco, int ram);
     void setNombre(const string &v);
@@ -21,6 +23,34 @@ class Computadora{
     int getDisco();
     void setRam(int v);
     int getRam();
+    
+    friend ostream& operator<<(ostream &out, const Computadora &p)
+    {
+        out << left;
+        out << setw(15) << p.nombre;
+        out << setw(15) << p.sistema;
+        out << setw(8) << p.disco;
+        out << setw(6) << p.ram;
+        out << endl;
+        return out;
+    }
+
+    friend istream& operator>>(istream &in, Computadora &p)
+    {
+        cout<<"Nombre: ";
+        getline(cin, p.nombre);
+
+        cout<<"Sistema: ";
+        getline(cin, p.sistema);
+
+        cout<<"Disco: ";
+        cin >> p.disco;
+
+        cout<<"RAM: ";
+        cin >> p.ram;
+
+        return in;
+    }
 };
 
 #endif

@@ -22,14 +22,15 @@ void Laboratorio::agregarFinal(const Computadora &p)
 
 void Laboratorio::mostrar()
 {
+    cout<<"Equipos"<<endl;
+    cout<<left;
+    cout<<setw(15)<<"Nombre:";
+    cout<<setw(15)<<"Sistema:";
+    cout<<setw(8)<<"Disco:";
+    cout<<setw(6)<<"RAM:";
     cout<<endl;
-    cout<<"Equipos: "<<endl;
     for(size_t i = 0; i < cont; i++){
         Computadora &p = arreglo[i];
-        cout<< "Nombre del equipo: " << p.getNombre() << endl;
-        cout<< "Sistema Operativo: " << p.getSistema() << endl;
-        cout<< "Disco: " << p.getDisco() << " GB" << endl;
-        cout<< "RAM: " << p.getRam() << "GB" << endl;
-        cout<<endl;
+        cout<<p;
     }
 }
